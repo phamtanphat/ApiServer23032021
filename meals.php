@@ -3,7 +3,7 @@
     require("response.php");
     require("mealModel.php");
 
-    $query = "SELECT * FROM meal";
+    $query = "SELECT * FROM mel";
 
     $data = mysqli_query($con , $query);
 
@@ -29,7 +29,7 @@
             echo json_encode(new Response($array,"Lấy dữ liệu thành công"));
         }
     }else{
-        echo echo json_encode(new Response(null,$con->error));;
+        echo json_encode(new Response(null,$con->error));;
     }
 
     
