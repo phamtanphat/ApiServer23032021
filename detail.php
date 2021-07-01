@@ -3,18 +3,21 @@
     require("response.php");
     require("mealModel.php");
 
-    $query = "SELECT * FROM meal";
+    $id = $_GET['id'];
+    $query = "SELECT * FROM meal WHERE id = $id";
 
     $data = mysqli_query($con , $query);
 
     $array = [];
+
+    $meal;
 
     if (!$con->error){
         if($data->num_rows <= 0){
             echo json_encode(new Response([],"Thành công"));
         }else{
             while($row = $data->fetch_assoc()){
-                array_push($array , new MealModel(
+                $meal =  new MealModel(
                     $row['id'],
                     $row['name'],
                     $row['image'],
@@ -24,9 +27,9 @@
                     $row['ingredient'],
                     $row['carbo'],
                     $row['protein'],
-                ));
+                );
             }
-            echo json_encode(new Response($array,"Lấy dữ liệu thành công"));
+            echo json_encode(new Response($meal,"Lấy dữ liệu thành công"));
         }
     }else{
         echo echo json_encode(new Response(null,$con->error));;

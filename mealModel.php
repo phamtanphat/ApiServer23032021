@@ -1,7 +1,7 @@
 <?php
     class MealModel{
         function __construct($id , $name, $image ,$youtube, $instruction ,$calo ,$ingredient , $carbo ,$protein){
-            $this->id = $data;
+            $this->id = $id;
             $this->name = $name;
             $this->image = $image;
             $this->youtube = $youtube;
