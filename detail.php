@@ -32,7 +32,7 @@
             echo json_encode(new Response($meal,"Lấy dữ liệu thành công"));
         }
     }else{
-        echo echo json_encode(new Response(null,$con->error));;
+        echo json_encode(new Response(null,$con->error));;
     }
 
     
